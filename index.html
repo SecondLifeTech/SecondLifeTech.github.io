@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecondLifeTech | Quality Pre-Owned Appliances</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2A6B47;
+            --primary-light: #3C8A5C;
+            --secondary: #FF7E30;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            --success: #28A745;
+            --warning: #FFC107;
+            --danger: #DC3545;
+            --admin-blue: #3A86FF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 28px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-actions a {
+            margin-left: 20px;
+            color: var(--dark);
+            font-size: 18px;
+            position: relative;
+        }
+        
+        .admin-badge {
+            background-color: var(--admin-blue);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e66b1a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .btn-admin {
+            background-color: var(--admin-blue);
+        }
+        
+        .btn-admin:hover {
+            background-color: #2a75ff;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--admin-blue);
+            color: var(--admin-blue);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--admin-blue);
+            color: white;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 8px;
+            background-color: var(--light);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 80px 20px;
+            background-color: var(--light-gray);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .category-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .category-card h3 {
+            padding: 20px 15px 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .admin-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover .admin-controls {
+            opacity: 1;
+        }
+        
+        .admin-btn-small {
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .admin-btn-small:hover {
+            background-color: var(--admin-blue);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--light-gray);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+        
+        .product-condition {
+            display: inline-block;
+            background-color: var(--light-gray);
+            color: var(--dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-condition.excellent {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .product-condition.good {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .product-condition.fair {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .product-rating {
+            color: var(--warning);
+            margin-bottom: 15px;
+        }
+        
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-modal.active {
+            display: flex;
+        }
+        
+        .login-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .login-box h2 {
+            text-align: center;
+            color: var(--admin-blue);
+            margin-bottom: 30px;
+        }
+        
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--admin-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .login-btn:hover {
+            background-color: #2a75ff;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1500;
+            overflow-y: auto;
+        }
+        
+        .admin-panel.active {
+            display: block;
+        }
+        
+        .admin-header {
+            background-color: var(--admin-blue);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-header h2 {
+            margin: 0;
+            color: white;
+        }
+        
+        .admin-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .admin-content {
+            padding: 20px;
+        }
+        
+        .admin-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .admin-section h3 {
+            color: var(--admin-blue);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        
+        select.form-control {
+            height: 42px;
+        }
+        
+        /* Image Upload Options */
+        .image-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .image-option-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid var(--light-gray);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .image-option-btn.active {
+            border-color: var(--admin-blue);
+            background-color: #f0f8ff;
+        }
+        
+        .image-input-section {
+            display: none;
+        }
+        
+        .image-input-section.active {
+            display: block;
+        }
+        
+        #imagePreview {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        #imagePreview.has-image {
+            display: block;
+        }
+        
+        /* File Upload Styling */
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            height: 100%;
+            width: 100%;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 12px;
+            background-color: var(--light);
+            border: 2px dashed var(--light-gray);
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload-label:hover {
+            background-color: #f0f0f0;
+            border-color: var(--admin-blue);
+        }
+        
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gallery-modal.active {
+            display: flex;
+        }
+        
+        .gallery-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            cursor: pointer;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        /* Admin Stats */
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--admin-blue);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .products-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            padding: 10px;
+        }
+        
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        
+        .product-item-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 20px;
+            background-color: var(--light);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 50px;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 2000;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .notification.error {
+            background-color: var(--danger);
+        }
+        
+        .notification.warning {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .steps {
+                justify-content: center;
+            }
+            
+            .step {
+                flex: 0 0 45%;
+            }
+            
+            .admin-panel {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .step {
+                flex: 0 0 100%;
+            }
+            
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .login-box {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .image-options {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .header-container {
+                padding: 15px;
+            }
+            
+            .product-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .product-item-actions {
+                align-self: flex-end;
+            }
+        }
+        
+        /* Currency Symbol */
+        .currency-symbol {
+            font-size: 0.9em;
+            margin-right: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <h2><i class="fas fa-lock"></i> Admin Access</h2>
+            <input type="password" id="adminPassword" class="login-input" placeholder="Enter Admin Password" autocomplete="off" autofocus>
+            <button class="login-btn" id="loginBtn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--danger);">
+                <i class="fas fa-shield-alt"></i> Secure Access Only<br>
+                <small>Unauthorized access prohibited</small>
+            </p>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="gallery-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3><i class="fas fa-images"></i> Image Gallery</h3>
+                <button class="admin-close" id="closeGallery">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p style="color: var(--gray); margin-bottom: 15px;">
+                Select an image or paste a URL below:
+            </p>
+            <input type="text" id="gallerySearch" class="form-control" placeholder="Search images or paste URL..." style="margin-bottom: 20px;">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery images will be loaded here -->
+            </div>
+            <button class="btn btn-admin" id="selectGalleryImage" style="width: 100%; margin-top: 20px;">
+                <i class="fas fa-check"></i> Use Selected Image
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2><i class="fas fa-cog"></i> SecondLifeTech Admin</h2>
+            <button class="admin-close" id="adminClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="admin-content">
+            <div class="admin-section">
+                <h3><i class="fas fa-tachometer-alt"></i> Dashboard</h3>
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalProducts">4</div>
+                        <div class="stat-label">Active Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalOrders">0</div>
+                        <div class="stat-label">Pending Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalRevenue">₦1,270</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4.5</div>
+                        <div class="stat-label">Avg Rating</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h3><i class="fas fa-plus-circle"></i> Add Product</h3>
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" class="form-control" placeholder="e.g., Samsung Refrigerator" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productCategory">Category *</label>
+                        <select id="productCategory" class="form-control" required>
+                            <option value="">Select Category</option>
+                            <option value="refrigerators">Refrigerators</option>
+                            <option value="washing-machines">Washing Machines</option>
+                            <option value="ovens">Ovens & Ranges</option>
+                            <option value="dishwashers">Dishwashers</option>
+                            <option value="microwaves">Microwaves</option>
+                            <option value="ac">Air Conditioners</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productCondition">Condition *</label>
+                        <select id="productCondition" class="form-control" required>
+                            <option value="excellent">Excellent (Like New)</option>
+                            <option value="good">Good (Minor Signs of Use)</option>
+                            <option value="fair">Fair (Works Well, Shows Wear)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Price *</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" id="productPrice" class="form-control" placeholder="165000" required style="flex: 1;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="originalPrice">Original Price (Optional)</label>
+                        <input type="number" id="originalPrice" class="form-control" placeholder="450000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription" class="form-control" rows="3" placeholder="Product details, features, age, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Product Image *</label>
+                        <div class="image-options">
+                            <div class="image-option-btn active" data-option="url">
+                                <i class="fas fa-link"></i> URL
+                            </div>
+                            <div class="image-option-btn" data-option="gallery">
+                                <i class="fas fa-images"></i> Gallery
+                            </div>
+                            <div class="image-option-btn" data-option="upload">
+                                <i class="fas fa-upload"></i> Upload
+                            </div>
+                        </div>
+                        
+                        <!-- URL Input -->
+                        <div class="image-input-section active" id="urlSection">
+                            <input type="text" id="imageUrl" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+                            <small style="color: var(--gray);">Paste image URL from web</small>
+                        </div>
+                        
+                        <!-- Gallery Input -->
+                        <div class="image-input-section" id="gallerySection">
+                            <button type="button" class="btn btn-outline" id="openGallery" style="width: 100%;">
+                                <i class="fas fa-images"></i> Browse Gallery
+                            </button>
+                            <input type="hidden" id="galleryImageUrl">
+                        </div>
+                        
+                        <!-- File Upload -->
+                        <div class="image-input-section" id="uploadSection">
+                            <div class="file-upload">
+                                <input type="file" id="fileUpload" class="file-upload-input" accept="image/*">
+                                <label for="fileUpload" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i> Click to upload image
+                                    <br>
+                                    <small>JPG, PNG, GIF up to 5MB</small>
+                                </label>
+                            </div>
+                            <input type="hidden" id="uploadedImageUrl">
+                        </div>
+                        
+                        <!-- Image Preview -->
+                        <img id="imagePreview" alt="Image Preview">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-admin" style="width: 100%;">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </form>
+            </div>
+            
+            <div class="admin-section">
+                <h3><i class="fas fa-edit"></i> Manage Products (<span id="productsCount">4</span>)</h3>
+                <div class="products-list" id="productsList">
+                    <!-- Products will be dynamically added here -->
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h3><i class="fas fa-cogs"></i> Site Settings</h3>
+                <div class="form-group">
+                    <label>Site Title</label>
+                    <input type="text" class="form-control" value="SecondLifeTech" id="siteTitle">
+                </div>
+                <div class="form-group">
+                    <label>Site Tagline</label>
+                    <input type="text" class="form-control" value="Second life for appliances. First-rate savings for you." id="siteTagline">
+                </div>
+                
+                <div class="form-group">
+                    <label>Currency</label>
+                    <select class="form-control" id="currencySymbol">
+                        <option value="₦">Nigerian Naira (₦)</option>
+                        <option value="$">US Dollar ($)</option>
+                        <option value="€">Euro (€)</option>
+                        <option value="£">British Pound (£)</option>
+                        <option value="CA$">Canadian Dollar (CA$)</option>
+                        <option value="A$">Australian Dollar (A$)</option>
+                        <option value="₹">Indian Rupee (₹)</option>
+                        <option value="¥">Japanese Yen (¥)</option>
+                        <option value="R">South African Rand (R)</option>
+                        <option value="custom">Custom Symbol</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="customCurrencyGroup" style="display: none;">
+                    <label>Custom Currency Symbol</label>
+                    <input type="text" class="form-control" id="customCurrency" placeholder="Enter your currency symbol" maxlength="3">
+                </div>
+                
+                <div class="form-group">
+                    <label>Change Admin Password</label>
+                    <input type="password" class="form-control" id="newAdminPassword" placeholder="New password (min 6 characters)">
+                    <input type="password" class="form-control" id="confirmAdminPassword" placeholder="Confirm new password" style="margin-top: 8px;">
+                    <small style="color: var(--gray);">Current password is set in code</small>
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;" id="saveSettings">
+                    <i class="fas fa-save"></i> Save All Settings
+                </button>
+                
+                <button class="btn btn-danger" style="width: 100%;" id="resetSite">
+                    <i class="fas fa-redo"></i> Reset to Default
+                </button>
+            </div>
+            
+            <div class="admin-section">
+                <h3><i class="fas fa-key"></i> Security</h3>
+                <div style="background-color: var(--light); padding: 15px; border-radius: 4px; font-size: 0.9rem;">
+                    <p style="margin-bottom: 10px;">
+                        <i class="fas fa-info-circle"></i> <strong>To change admin password:</strong>
+                    </p>
+                    <ol style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>Open the HTML file in a text editor</li>
+                        <li>Find <code>const ADMIN_PASSWORD</code></li>
+                        <li>Change the password between quotes</li>
+                        <li>Save and re-upload the file</li>
+                    </ol>
+                    <p style="color: var(--danger); font-size: 0.8rem;">
+                        <i class="fas fa-exclamation-triangle"></i> Never share your admin password
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationText">Operation successful!</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container container">
+            <a href="#" class="logo">
+                <i class="fas fa-recycle logo-icon"></i>
+                <div class="logo-text">Second<span>LifeTech</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="#" id="adminToggle">
+                    <i class="fas fa-cog"></i>
+                    <span class="admin-badge">Admin</span>
+                </a>
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 id="heroTitle">Quality Pre-Owned Home Appliances</h1>
+            <p id="heroTagline">Second life for appliances. First-rate savings for you.</p>
+            <a href="#products" class="btn">Shop Now</a>
+            <a href="#contact" class="btn btn-primary">Sell Your Item</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose SecondLifeTech?</h2>
+                <p>We make buying and selling used appliances safe, simple, and sustainable.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Inspected</h3>
+                    <p>Every appliance is thoroughly tested and inspected to ensure it's in working condition.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery & Installation</h3>
+                    <p>We offer professional delivery and installation services for most appliances.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3>30-Day Warranty</h3>
+                    <p>All appliances come with a 30-day warranty for your peace of mind.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Reduce electronic waste by giving appliances a second life in new homes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop By Category</h2>
+                <p>Browse our selection of quality used appliances by category</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Refrigerators">
+                    <h3>Refrigerators</h3>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Washing Machines">
+                    <h3>Washing Machines</h3>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Ovens & Ranges">
+                    <h3>Ovens & Ranges</h3>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Dishwashers">
+                    <h3>Dishwashers</h3>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Microwaves">
+                    <h3>Microwaves</h3>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Air Conditioners">
+                    <h3>Air Conditioners</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Appliances</h2>
+                <p>Check out some of our top-rated used appliances</p>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Simple steps to buy or sell pre-owned appliances</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>List or Browse</h3>
+                    <p>Sellers list appliances with photos and details. Buyers browse our verified inventory.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Inspect & Verify</h3>
+                    <p>Our team inspects each appliance for functionality and condition, or you can schedule a viewing.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Secure Payment</h3>
+                    <p>Buyers pay securely through our platform. Sellers receive payment after successful delivery.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Delivery & Setup</h3>
+                    <p>We arrange professional pickup and delivery. Installation services available for most items.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="features" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to buy, sell, or inquire about our appliances</p>
+            </div>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="margin-bottom: 30px;">
+                    <i class="fas fa-phone"></i> Call: (555) 123-4567<br>
+                    <i class="fas fa-envelope"></i> Email: info@secondlifetech.com<br>
+                    <i class="fas fa-map-marker-alt"></i> Address: 123 Green Street, Eco City
+                </p>
+                <a href="mailto:info@secondlifetech.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Send Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SecondLifeTech</h3>
+                    <p>Your trusted marketplace for quality pre-owned home appliances. Sustainable, affordable, and reliable.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Delivery</a></li>
+                        <li><a href="#">Returns & Warranty</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 9AM - 6PM</li>
+                        <li>Saturday: 10AM - 4PM</li>
+                        <li>Sunday: Closed</li>
+                        <li>24/7 Online Orders</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 SecondLifeTech. All rights reserved. | Sustainable Shopping for Smart Homes</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== SECURITY SETTINGS ====================
+        // CHANGE THIS PASSWORD IN THE CODE FOR SECURITY
+        const ADMIN_PASSWORD = "Vincent-82"; 
+        let currentAdminPassword = ADMIN_PASSWORD;
+        let isAdminLoggedIn = false;
+        let currencySymbol = "Gh";
+
+        // ==================== IMAGE GALLERY ====================
+        const applianceGallery = [
+            // Refrigerators
+            {url: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "refrigerators", name: "Refrigerator"},
+            {url: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "refrigerators", name: "French Door Fridge"},
+            {url: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "refrigerators", name: "Side-by-Side"},
+            
+            // Washing Machines
+            {url: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "washing-machines", name: "Front Load Washer"},
+            {url: "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "washing-machines", name: "Top Load Washer"},
+            {url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "washing-machines", name: "Washer Dryer"},
+            
+            // Ovens & Ranges
+            {url: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "ovens", name: "Electric Oven"},
+            {url: "https://images.unsplash.com/photo-1581092580497-e0d4cb184827?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "ovens", name: "Gas Range"},
+            {url: "https://images.unsplash.com/photo-1581092580497-e0d4cb184827?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "ovens", name: "Stove"},
+            
+            // Dishwashers
+            {url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "dishwashers", name: "Built-in Dishwasher"},
+            {url: "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "dishwashers", name: "Portable Dishwasher"},
+            
+            // Microwaves
+            {url: "https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "microwaves", name: "Countertop Microwave"},
+            {url: "https://images.unsplash.com/photo-1581092580497-e0d4cb184827?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "microwaves", name: "Over-the-range Microwave"},
+            
+            // Air Conditioners
+            {url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "ac", name: "Window AC"},
+            {url: "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "ac", name: "Split AC"},
+            
+            // Generic Appliances
+            {url: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "others", name: "Home Appliance"},
+            {url: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", category: "others", name: "Kitchen Appliance"}
+        ];
+
+        // ==================== SAMPLE PRODUCTS ====================
+        let products = [
+            {
+                id: 1,
+                name: "Samsung French Door Refrigerator",
+                category: "refrigerators",
+                price: 165000,
+                originalPrice: 450000,
+                condition: "excellent",
+                rating: 4.5,
+                reviews: 24,
+                description: "2 years old, energy efficient, ice maker included. Recently serviced.",
+                image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 2,
+                name: "LG Smart Dishwasher",
+                category: "dishwashers",
+                price: 80000,
+                originalPrice: 235000,
+                condition: "good",
+                rating: 4.0,
+                reviews: 18,
+                description: "Quiet operation, multiple wash cycles, stainless steel interior. 1 year old.",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 3,
+                name: "Whirlpool Front Load Washer",
+                category: "washing-machines",
+                price: 102000,
+                originalPrice: 290000,
+                condition: "excellent",
+                rating: 5.0,
+                reviews: 31,
+                description: "Energy star certified, large capacity, steam function. Comes with 6-month warranty.",
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 4,
+                name: "GE Self-Cleaning Oven",
+                category: "ovens",
+                price: 117000,
+                originalPrice: 325000,
+                condition: "fair",
+                rating: 3.5,
+                reviews: 12,
+                description: "Electric oven with convection, self-cleaning function. Some cosmetic wear but works perfectly.",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            }
+        ];
+
+        // ==================== DOM ELEMENTS ====================
+        const loginModal = document.getElementById('loginModal');
+        const adminPanel = document.getElementById('adminPanel');
+        const galleryModal = document.getElementById('galleryModal');
+        const adminToggle = document.getElementById('adminToggle');
+        const adminClose = document.getElementById('adminClose');
+        const closeGallery = document.getElementById('closeGallery');
+        const loginBtn = document.getElementById('loginBtn');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const productsGrid = document.getElementById('productsGrid');
+        const productsList = document.getElementById('productsList');
+        const productsCount = document.getElementById('productsCount');
+        const totalProducts = document.getElementById('totalProducts');
+        const totalRevenue = document.getElementById('totalRevenue');
+        const addProductForm = document.getElementById('addProductForm');
+        const saveSettingsBtn = document.getElementById('saveSettings');
+        const resetSiteBtn = document.getElementById('resetSite');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        const currencySelect = document.getElementById('currencySymbol');
+        const customCurrencyGroup = document.getElementById('customCurrencyGroup');
+        const customCurrencyInput = document.getElementById('customCurrency');
+        const imageOptionBtns = document.querySelectorAll('.image-option-btn');
+        const urlSection = document.getElementById('urlSection');
+        const gallerySection = document.getElementById('gallerySection');
+        const uploadSection = document.getElementById('uploadSection');
+        const imageUrlInput = document.getElementById('imageUrl');
+        const galleryImageUrlInput = document.getElementById('galleryImageUrl');
+        const uploadedImageUrlInput = document.getElementById('uploadedImageUrl');
+        const imagePreview = document.getElementById('imagePreview');
+        const openGalleryBtn = document.getElementById('openGallery');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const gallerySearch = document.getElementById('gallerySearch');
+        const selectGalleryImageBtn = document.getElementById('selectGalleryImage');
+        const fileUpload = document.getElementById('fileUpload');
+        let selectedGalleryImage = '';
+
+        // ==================== UTILITY FUNCTIONS ====================
+        function showNotification(message, type = 'success') {
+            notificationText.textContent = message;
+            notification.className = 'notification show';
+            notification.classList.add(type);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        function formatPrice(price) {
+            return currencySymbol + price.toLocaleString();
+        }
+
+        function calculateTotalRevenue() {
+            return products.reduce((total, product) => total + product.price, 0);
+        }
+
+        // ==================== IMAGE HANDLING FUNCTIONS ====================
+        function updateImagePreview(url) {
+            if (url) {
+                imagePreview.src = url;
+                imagePreview.classList.add('has-image');
+            } else {
+                imagePreview.classList.remove('has-image');
+            }
+        }
+
+        function loadGalleryImages(searchTerm = '') {
+            galleryGrid.innerHTML = '';
+            const filtered = applianceGallery.filter(img => 
+                img.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                img.category.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            filtered.forEach((img, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.dataset.url = img.url;
+                item.innerHTML = `
+                    <img src="${img.url}" alt="${img.name}" loading="lazy">
+                    <div style="padding: 8px; background: white; font-size: 0.8rem;">
+                        <div>${img.name}</div>
+                        <div style="color: var(--gray);">${img.category}</div>
+                    </div>
+                `;
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.gallery-item').forEach(i => i.style.border = '');
+                    item.style.border = '3px solid var(--admin-blue)';
+                    selectedGalleryImage = img.url;
+                });
+                galleryGrid.appendChild(item);
+            });
+        }
+
+        function handleFileUpload(file) {
+            if (!file.type.match('image.*')) {
+                showNotification('Please upload an image file (JPG, PNG, GIF)', 'error');
+                return;
+            }
+            
+            if (file.size > 5 * 1024 * 1024) {
+                showNotification('Image must be less than 5MB', 'error');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // For demo, we'll use a data URL
+                // In production, you'd upload to a server
+                const imageDataUrl = e.target.result;
+                uploadedImageUrlInput.value = imageDataUrl;
+                updateImagePreview(imageDataUrl);
+                showNotification('Image uploaded successfully!', 'success');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // ==================== PRODUCT DISPLAY FUNCTIONS ====================
+        function displayProducts() {
+            productsGrid.innerHTML = '';
+            productsList.innerHTML = '';
+            
+            products.forEach(product => {
+                // Display on main page
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="admin-controls">
+                        <button class="admin-btn-small" onclick="editProduct(${product.id})" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="admin-btn-small" onclick="deleteProduct(${product.id})" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <img src="${product.image}" alt="${product.name}" class="product-img" loading="lazy">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">${formatPrice(product.price)} 
+                            ${product.originalPrice ? `<span class="product-original-price">${formatPrice(product.originalPrice)}</span>` : ''}
+                        </div>
+                        <div class="product-condition ${product.condition}">${product.condition.charAt(0).toUpperCase() + product.condition.slice(1)} Condition</div>
+                        <div class="product-rating">
+                            ${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}
+                            ${product.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                            ${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(product.rating))}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        <p>${product.description}</p>
+                        <button class="btn" style="margin-top: 15px; width: 100%;" onclick="contactAboutProduct(${product.id})">
+                            <i class="fas fa-envelope"></i> Inquire About This Item
+                        </button>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+
+                // Display in admin panel list
+                const productItem = document.createElement('div');
+                productItem.className = 'product-item';
+                productItem.innerHTML = `
+                    <div>
+                        <strong>${product.name}</strong><br>
+                        <small>${formatPrice(product.price)} • ${product.condition}</small>
+                    </div>
+                    <div class="product-item-actions">
+                        <button class="admin-btn-small" onclick="editProduct(${product.id})" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="admin-btn-small" onclick="deleteProduct(${product.id})" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                productsList.appendChild(productItem);
+            });
+            
+            // Update counters
+            productsCount.textContent = products.length;
+            totalProducts.textContent = products.length;
+            totalRevenue.textContent = formatPrice(calculateTotalRevenue());
+        }
+
+        // ==================== PRODUCT MANAGEMENT FUNCTIONS ====================
+        function addProduct(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const condition = document.getElementById('productCondition').value;
+            const price = parseInt(document.getElementById('productPrice').value);
+            const originalPrice = document.getElementById('originalPrice').value ? parseInt(document.getElementById('originalPrice').value) : null;
+            const description = document.getElementById('productDescription').value;
+            
+            // Get image from selected option
+            let image = '';
+            const activeOption = document.querySelector('.image-option-btn.active').dataset.option;
+            
+            if (activeOption === 'url') {
+                image = imageUrlInput.value.trim();
+            } else if (activeOption === 'gallery') {
+                image = selectedGalleryImage || galleryImageUrlInput.value;
+            } else if (activeOption === 'upload') {
+                image = uploadedImageUrlInput.value;
+            }
+            
+            // Default image if none provided
+            if (!image) {
+                image = 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80';
+            }
+            
+            const newProduct = {
+                id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+                name,
+                category,
+                price,
+                originalPrice,
+                condition,
+                rating: 4.0,
+                reviews: 0,
+                description,
+                image
+            };
+            
+            products.push(newProduct);
+            displayProducts();
+            
+            // Reset form
+            addProductForm.reset();
+            imageUrlInput.value = '';
+            galleryImageUrlInput.value = '';
+            uploadedImageUrlInput.value = '';
+            selectedGalleryImage = '';
+            updateImagePreview('');
+            
+            // Reset to URL option
+            document.querySelectorAll('.image-option-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.image-option-btn[data-option="url"]').classList.add('active');
+            urlSection.classList.add('active');
+            gallerySection.classList.remove('active');
+            uploadSection.classList.remove('active');
+            
+            showNotification(`"${name}" added successfully!`);
+        }
+
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productCondition').value = product.condition;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('originalPrice').value = product.originalPrice || '';
+            document.getElementById('productDescription').value = product.description;
+            
+            // Set image in URL field by default
+            imageUrlInput.value = product.image;
+            updateImagePreview(product.image);
+            
+            // Change form to edit mode
+            const submitBtn = addProductForm.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Product';
+            submitBtn.onclick = function(e) {
+                e.preventDefault();
+                
+                product.name = document.getElementById('productName').value;
+                product.category = document.getElementById('productCategory').value;
+                product.condition = document.getElementById('productCondition').value;
+                product.price = parseInt(document.getElementById('productPrice').value);
+                product.originalPrice = document.getElementById('originalPrice').value ? parseInt(document.getElementById('originalPrice').value) : null;
+                product.description = document.getElementById('productDescription').value;
+                
+                // Get updated image
+                const activeOption = document.querySelector('.image-option-btn.active').dataset.option;
+                if (activeOption === 'url') {
+                    product.image = imageUrlInput.value.trim() || product.image;
+                } else if (activeOption === 'gallery') {
+                    product.image = selectedGalleryImage || galleryImageUrlInput.value || product.image;
+                } else if (activeOption === 'upload') {
+                    product.image = uploadedImageUrlInput.value || product.image;
+                }
+                
+                displayProducts();
+                addProductForm.reset();
+                submitBtn.innerHTML = '<i class="fas fa-plus"></i> Add Product';
+                submitBtn.onclick = addProduct;
+                updateImagePreview('');
+                
+                showNotification(`"${product.name}" updated!`);
+            };
+            
+            // Scroll to form
+            document.querySelector('.admin-content').scrollTop = document.getElementById('addProductForm').offsetTop - 20;
+            showNotification(`Editing "${product.name}"`, 'warning');
+        }
+
+        function deleteProduct(productId) {
+            if (confirm('Delete this product? This cannot be undone.')) {
+                const productIndex = products.findIndex(p => p.id === productId);
+                if (productIndex !== -1) {
+                    const productName = products[productIndex].name;
+                    products.splice(productIndex, 1);
+                    displayProducts();
+                    showNotification(`"${productName}" deleted`, 'warning');
+                }
+            }
+        }
+
+        function contactAboutProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const subject = `Inquiry about: ${product.name}`;
+                const body = `Hello, I'm interested in your ${product.name} listed for ${formatPrice(product.price)}.`;
+                window.location.href = `mailto:info@secondlifetech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            }
+        }
+
+        // ==================== SITE SETTINGS FUNCTIONS ====================
+        function saveSettings() {
+            const siteTitle = document.getElementById('siteTitle').value;
+            const siteTagline = document.getElementById('siteTagline').value;
+            const newPassword = document.getElementById('newAdminPassword').value;
+            const confirmPassword = document.getElementById('confirmAdminPassword').value;
+            
+            // Update site title and tagline
+            document.getElementById('heroTitle').textContent = siteTitle;
+            document.getElementById('heroTagline').textContent = siteTagline;
+            document.title = `${siteTitle} | Quality Pre-Owned Appliances`;
+            
+            // Update currency
+            let selectedCurrency = currencySelect.value;
+            if (selectedCurrency === 'custom') {
+                currencySymbol = customCurrencyInput.value.trim() || currencySymbol;
+            } else {
+                currencySymbol = selectedCurrency;
+            }
+            
+            // Update password if provided
+            if (newPassword) {
+                if (newPassword.length < 6) {
+                    showNotification('Password must be at least 6 characters!', 'error');
+                    return;
+                }
+                if (newPassword !== confirmPassword) {
+                    showNotification('Passwords do not match!', 'error');
+                    return;
+                }
+                currentAdminPassword = newPassword;
+                document.getElementById('newAdminPassword').value = '';
+                document.getElementById('confirmAdminPassword').value = '';
+                showNotification('Admin password updated!');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('secondlifetech_settings', JSON.stringify({
+                siteTitle,
+                siteTagline,
+                currencySymbol
+            }));
+            
+            // Update product display with new currency
+            displayProducts();
+            
+            showNotification('Settings saved!');
+        }
+
+        function resetSite() {
+            if (confirm('Reset all site data? This will remove all products and reset settings.')) {
+                // Reset products to sample
+                products = [
+                    {
+                        id: 1,
+                        name: "Samsung French Door Refrigerator",
+                        category: "refrigerators",
+                        price: 165000,
+                        originalPrice: 450000,
+                        condition: "excellent",
+                        rating: 4.5,
+                        reviews: 24,
+                        description: "2 years old, energy efficient, ice maker included. Recently serviced.",
+                        image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 2,
+                        name: "LG Smart Dishwasher",
+                        category: "dishwashers",
+                        price: 80000,
+                        originalPrice: 235000,
+                        condition: "good",
+                        rating: 4.0,
+                        reviews: 18,
+                        description: "Quiet operation, multiple wash cycles, stainless steel interior. 1 year old.",
+                        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 3,
+                        name: "Whirlpool Front Load Washer",
+                        category: "washing-machines",
+                        price: 102000,
+                        originalPrice: 290000,
+                        condition: "excellent",
+                        rating: 5.0,
+                        reviews: 31,
+                        description: "Energy star certified, large capacity, steam function. Comes with 6-month warranty.",
+                        image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 4,
+                        name: "GE Self-Cleaning Oven",
+                        category: "ovens",
+                        price: 117000,
+                        originalPrice: 325000,
+                        condition: "fair",
+                        rating: 3.5,
+                        reviews: 12,
+                        description: "Electric oven with convection, self-cleaning function. Some cosmetic wear but works perfectly.",
+                        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    }
+                ];
+                
+                // Reset settings
+                document.getElementById('siteTitle').value = "SecondLifeTech";
+                document.getElementById('siteTagline').value = "Second life for appliances. First-rate savings for you.";
+                currencySelect.value = "₦";
+                customCurrencyGroup.style.display = 'none';
+                currencySymbol = "₦";
+                
+                // Reset localStorage
+                localStorage.removeItem('secondlifetech_settings');
+                localStorage.removeItem('secondlifetech_products');
+                
+                // Update display
+                displayProducts();
+                document.getElementById('heroTitle').textContent = "Quality Pre-Owned Home Appliances";
+                document.getElementById('heroTagline').textContent = "Second life for appliances. First-rate savings for you.";
+                
+                showNotification('Site reset to defaults!', 'warning');
+            }
+        }
+
+        // ==================== LOGIN & ADMIN FUNCTIONS ====================
+        function login() {
+            const password = adminPasswordInput.value;
+            
+            if (password === currentAdminPassword) {
+                isAdminLoggedIn = true;
+                loginModal.classList.remove('active');
+                adminPanel.classList.add('active');
+                adminPasswordInput.value = '';
+                document.querySelector('.admin-badge').style.display = 'inline';
+                showNotification('Admin access granted!');
+            } else {
+                showNotification('Incorrect password!', 'error');
+                adminPasswordInput.value = '';
+                adminPasswordInput.focus();
+            }
+        }
+
+        function logout() {
+            isAdminLoggedIn = false;
+            adminPanel.classList.remove('active');
+            document.querySelector('.admin-badge').style.display = 'none';
+            showNotification('Logged out', 'warning');
+        }
+
+        // ==================== EVENT LISTENERS ====================
+        adminToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isAdminLoggedIn) {
+                adminPanel.classList.add('active');
+            } else {
+                loginModal.classList.add('active');
+                adminPasswordInput.focus();
+            }
+        });
+
+        adminClose.addEventListener('click', logout);
+        loginBtn.addEventListener('click', login);
+
+        adminPasswordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') login();
+        });
+
+        addProductForm.addEventListener('submit', addProduct);
+        saveSettingsBtn.addEventListener('click', saveSettings);
+        resetSiteBtn.addEventListener('click', resetSite);
+
+        // Image option buttons
+        imageOptionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                imageOptionBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const option = this.dataset.option;
+                urlSection.classList.remove('active');
+                gallerySection.classList.remove('active');
+                uploadSection.classList.remove('active');
+                
+                if (option === 'url') {
+                    urlSection.classList.add('active');
+                } else if (option === 'gallery') {
+                    gallerySection.classList.add('active');
+                } else if (option === 'upload') {
+                    uploadSection.classList.add('active');
+                }
+            });
+        });
+
+        // Gallery functions
+        openGalleryBtn.addEventListener('click', function() {
+            galleryModal.classList.add('active');
+            loadGalleryImages();
+        });
+
+        closeGallery.addEventListener('click', function() {
+            galleryModal.classList.remove('active');
+        });
+
+        selectGalleryImageBtn.addEventListener('click', function() {
+            if (selectedGalleryImage) {
+                galleryImageUrlInput.value = selectedGalleryImage;
+                updateImagePreview(selectedGalleryImage);
+                galleryModal.classList.remove('active');
+                showNotification('Image selected from gallery!');
+            } else {
+                showNotification('Please select an image first', 'error');
+            }
+        });
+
+        gallerySearch.addEventListener('input', function() {
+            loadGalleryImages(this.value);
+        });
+
+        // Image URL input preview
+        imageUrlInput.addEventListener('input', function() {
+            updateImagePreview(this.value);
+        });
+
+        // File upload
+        fileUpload.addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                handleFileUpload(e.target.files[0]);
+            }
+        });
+
+        // Currency selection
+        currencySelect.addEventListener('change', function() {
+            if (this.value === 'custom') {
+                customCurrencyGroup.style.display = 'block';
+                customCurrencyInput.focus();
+            } else {
+                customCurrencyGroup.style.display = 'none';
+            }
+        });
+
+        // Close modals when clicking outside
+        loginModal.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+            }
+        });
+
+        galleryModal.addEventListener('click', function(e) {
+            if (e.target === galleryModal) {
+                galleryModal.classList.remove('active');
+            }
+        });
+
+        // ==================== LOAD SAVED SETTINGS ====================
+        function loadSavedSettings() {
+            const saved = localStorage.getItem('secondlifetech_settings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                document.getElementById('siteTitle').value = settings.siteTitle;
+                document.getElementById('siteTagline').value = settings.siteTagline;
+                document.getElementById('heroTitle').textContent = settings.siteTitle;
+                document.getElementById('heroTagline').textContent = settings.siteTagline;
+                
+                // Set currency
+                currencySymbol = settings.currencySymbol || "₦";
+                if (['₦', '$', '€', '£', 'CA$', 'A$', '₹', '¥', 'R'].includes(currencySymbol)) {
+                    currencySelect.value = currencySymbol;
+                } else {
+                    currencySelect.value = 'custom';
+                    customCurrencyGroup.style.display = 'block';
+                    customCurrencyInput.value = currencySymbol;
+                }
+            }
+            
+            // Load saved products
+            const savedProducts = localStorage.getItem('secondlifetech_products');
+            if (savedProducts) {
+                products = JSON.parse(savedProducts);
+            }
+        }
+
+        // ==================== SAVE ON EXIT ====================
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('secondlifetech_products', JSON.stringify(products));
+        });
+
+        // ==================== MOBILE MENU ====================
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ==================== INITIALIZE ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedSettings();
+            displayProducts();
+            
+            // Hide admin badge initially
+            document.querySelector('.admin-badge').style.display = 'none';
+            
+            // Load gallery images
+            loadGalleryImages();
+        });
+    </script>
+</body>
+</html>
